@@ -59,6 +59,7 @@ class LoginViewController: UIViewController {
                             //everything worked!
                             
                             print("Sign up was successful")
+                            self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
                            
                         }
                     })
@@ -80,6 +81,7 @@ class LoginViewController: UIViewController {
                             //everything worked!
                             
                             print("Log in was successful")
+                            self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
                             
                             
                         }
