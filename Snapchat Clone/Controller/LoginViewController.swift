@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
 
@@ -56,11 +57,16 @@ class LoginViewController: UIViewController {
                             
                         } else {
                             
-                            //everything worked!
+                            // add the user to firebase
+                            if let user = user{
+                            Database.database().reference().child("users").child(user.uid).child("email").setValue(user.email)
                             
-                            print("Sign up was successful")
+                                
+                                //everything worked!
+                            
+                            //print("Sign up was successful")
                             self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
-                           
+                            }
                         }
                     })
                     
@@ -80,7 +86,7 @@ class LoginViewController: UIViewController {
                             
                             //everything worked!
                             
-                            print("Log in was successful")
+                            //print("Log in was successful")
                             self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
                             
                             
@@ -120,15 +126,9 @@ class LoginViewController: UIViewController {
             
             topButton.setTitle("Sign Up", for: .normal)
             bottomButton.setTitle("Switch to Log in", for: .normal)
-            
-            
-            
-            
+           
         }
-        
-        
-        
-        
+      
     }
     
     func displayAlert(title: String, message: String) {

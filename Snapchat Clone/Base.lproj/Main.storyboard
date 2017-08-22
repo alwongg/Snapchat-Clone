@@ -199,11 +199,40 @@
                     <connections>
                         <outlet property="imageView" destination="iTc-qF-4Lq" id="UUD-Su-GeW"/>
                         <outlet property="messageTextField" destination="hdN-p2-Nbe" id="5Dz-jY-t4j"/>
+                        <segue destination="kGn-At-0g6" kind="show" identifier="selectReceiverSegue" id="8Ls-Qu-Ckh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i51-3Y-EBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2600.8000000000002" y="145.27736131934034"/>
+        </scene>
+        <!--Select Recipient Table View Controller-->
+        <scene sceneID="zWg-5V-qBx">
+            <objects>
+                <tableViewController id="kGn-At-0g6" customClass="SelectRecipientTableViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aIZ-oL-jXv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lsn-Sr-T6C">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lsn-Sr-T6C" id="kKj-7y-C2u">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kGn-At-0g6" id="I7e-sU-rzg"/>
+                            <outlet property="delegate" destination="kGn-At-0g6" id="0mC-Eq-Oeh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSf-Cc-raw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3391" y="149"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aro-9h-2Ax">
