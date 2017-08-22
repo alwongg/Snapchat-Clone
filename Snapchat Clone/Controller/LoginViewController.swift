@@ -61,7 +61,6 @@ class LoginViewController: UIViewController {
                             if let user = user{
                             Database.database().reference().child("users").child(user.uid).child("email").setValue(user.email)
                             
-                                
                                 //everything worked!
                             
                             //print("Sign up was successful")
@@ -69,9 +68,6 @@ class LoginViewController: UIViewController {
                             }
                         }
                     })
-                    
-                    
-                    
                 } else {
                     
                     // log in

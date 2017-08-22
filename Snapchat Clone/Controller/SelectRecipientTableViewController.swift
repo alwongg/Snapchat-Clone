@@ -12,9 +12,14 @@ import FirebaseAuth
 
 class SelectRecipientTableViewController: UITableViewController {
     
-    var downloadURL = ""
+    // MARK: - Properties
+    
     var users: [User] = []
+    var downloadURL = ""
     var snapDescription = ""
+    var imageName = ""
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,24 +35,19 @@ class SelectRecipientTableViewController: UITableViewController {
                     self.users.append(user)
                     self.tableView.reloadData()
                 }
-                
-                
             }
         }
-        
-        
     }
     
+    // MARK: - UITableView methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return users.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        
         
         // Configure the cell...
         
@@ -62,19 +62,14 @@ class SelectRecipientTableViewController: UITableViewController {
         
         if let fromEmail = Auth.auth().currentUser?.email{
             
-            let snap = ["from": fromEmail, "description": snapDescription, "imageURL": downloadURL]
+            let snap = ["from": fromEmail, "description": snapDescription, "imageURL": downloadURL, "imageName": imageName]
             
             Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
             
             navigationController?.popToRootViewController(animated: true)
             
         }
-        
-        
-        
     }
-    
-    
 }
 
 class User {

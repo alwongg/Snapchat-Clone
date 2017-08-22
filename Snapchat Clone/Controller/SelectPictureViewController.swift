@@ -15,6 +15,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker: UIImagePickerController?
     var imageAdded = false
+    var imageName = "\(NSUUID().uuidString).jpg"
     
     // MARK: - IBOutlets
     
@@ -77,7 +78,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
                     if let imageData = UIImageJPEGRepresentation(image, 0.1){
                         
                         // we have the image data, store it in the image folder in firebase
-                        imagesFolder.child("\(NSUUID().uuidString).jpg").putData(imageData, metadata: nil, completion: { (metadata, error) in
+                        imagesFolder.child(imageName).putData(imageData, metadata: nil, completion: { (metadata, error) in
                             
                             // check if there's an error, display message if error != nil
                             if let error = error{
@@ -118,10 +119,9 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
                 
                 selectVC.downloadURL = downloadURL
                 selectVC.snapDescription = messageTextField.text!
+                selectVC.imageName = imageName
                 
             }
-            
-            
         }
     }
     
